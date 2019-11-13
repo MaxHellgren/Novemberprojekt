@@ -14,7 +14,7 @@ namespace Novemberprojekt
             Fighter1 f1 = new Fighter1(); //skapar instanser av de olika gubbarna
             Fighter2 f2 = new Fighter2();
 
-            f.Fights();
+            f.Fights(); //Ändra denna
             
         }
     }

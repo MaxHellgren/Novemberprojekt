@@ -30,30 +30,29 @@ namespace Novemberprojekt
 
             if (damage == 0) //Om du missar så säger announcern det
             {
-                Console.WriteLine("He missed!");
+                Console.WriteLine(name + " dodged the blow!");
             }
             else
             {
                 Console.WriteLine(name + " took " + damage + " damage."); //Skriver ut i konsollen hur mycket damage din fighter tog.
             }
-            Console.ReadLine();
+            //Console.ReadLine();
         }
 
         public void GetHP() //ger fighters hp, som sedan subtraheras. 
         {
             Hurt();
-            Console.WriteLine(name + " currently has " + HP + " HP remaining."); //Printar nuvarande HP
             HP = HP - damage;
-
-            IsAlive();
+            Console.WriteLine(name + " currently has " + HP + " HP remaining."); //Printar nuvarande HP
         }
 
         public void IsAlive()
         {
             if (HP < 1)
             {
-                Console.WriteLine(name + " has lost the fight!");
-                Console.ReadLine();
+                Console.WriteLine("");
+                Console.WriteLine(name + " has lost the fight!");//Behövs inte readline efter sålänge det finns efter f.gethp i fightklassen
+                
                 alive = false;
             }
         }

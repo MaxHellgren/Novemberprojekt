@@ -15,16 +15,30 @@ namespace Novemberprojekt
         {
             Console.WriteLine("What's your fighter's name?");
             f1.name = Console.ReadLine(); //Bestäm din fighters namn, andra är redan bestämt som Ali
+            Console.Clear();
 
             Console.WriteLine("Welcome to the stands, ladies and gentlemen!");
             Console.WriteLine("Tonight's fight is between " + f1.name + " and Ali!");
+            Console.ReadKey();
+            Console.Clear();
+
+
             int i = 0; //ökar varje runda för att räkna vilken runda fighten är på.
-            while (f1.alive == true || f2.alive == true)
+            while (f1.alive == true && f2.alive == true)
             {
                 i++;
                 Console.WriteLine("Round " + i + "!");
-                f1.GetHP();
-                f2.GetHP();
+                Console.WriteLine("");
+                f1.GetHP(); //GetHP attackerar och ändrar ditt hp, dock så slår du dig själv just nu lol
+                f1.IsAlive(); //Måste kolla isalive separat, för annars så tar ali damage när du redan har dött
+
+                if (f1.HP > 1)
+                {
+                    f2.GetHP();
+                    f2.IsAlive(); //Skulle annars bara kalla IsAlive efter varje GetHP
+                }
+
+                Console.ReadKey();
                 Console.Clear();
 
             }
