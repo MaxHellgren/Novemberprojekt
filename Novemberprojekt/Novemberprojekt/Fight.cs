@@ -8,58 +8,26 @@ namespace Novemberprojekt
 {
     class Fight
     {
-        private int HP;
-        public string name;
-        public Random gen = new Random();
-        private int damage;
-        private bool alive = true;
+        Fighter1 f1 = new Fighter1(); //skapar instanser av de olika gubbarna
+        Fighter2 f2 = new Fighter2();
 
-        public Fight()
+        public void Fights()
         {
-            while (this.alive == true)
+            Console.WriteLine("What's your fighter's name?");
+            f1.name = Console.ReadLine(); //Bestäm din fighters namn, andra är redan bestämt som Ali
+
+            Console.WriteLine("Welcome to the stands, ladies and gentlemen!");
+            Console.WriteLine("Tonight's fight is between " + f1.name + " and Ali!");
+            int i = 0; //ökar varje runda för att räkna vilken runda fighten är på.
+            while (f1.alive == true || f2.alive == true)
             {
-                Hurt();
+                i++;
+                Console.WriteLine("Round " + i + "!");
+                f1.GetHP();
+                f2.GetHP();
+                Console.Clear();
+
             }
         }
-
-        public int Attack(int damage)
-        {
-            damage = gen.Next(1, 21);
-
-            return damage;
-        }
-
-        public void Hurt()
-        {
-            int damageTaken = Attack(damage);
-            int hp = GetHp(HP);
-            Console.WriteLine(name + " took " + this.damage + " damage and now has this much remaining HP: " + hp);
-            Console.ReadLine();
-        }
-
-        public bool IsAlive(bool alive)
-        {
-            int hp = GetHp(HP);
-            if (hp > 0)
-            {
-                alive = true;
-            }
-            else
-            {
-                alive = false;
-                Console.WriteLine(name + " has died fighting in the ring!");
-                Console.ReadLine();
-            }
-
-            return alive;
-        }
-
-        public int GetHp(int HP)
-        {
-            HP = HP - Attack(damage);
-
-            return HP;
-        }
-
     }
 }
