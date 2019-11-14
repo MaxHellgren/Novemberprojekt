@@ -13,7 +13,11 @@ namespace Novemberprojekt
             minDamage = 10;
             maxDamage = 27;
             speed = 6;
-            name = "Ali";
+
+            string[] names = { "Ali", "Frazer", "McGregor", "Rousey" };
+            int r = gen.Next(4);
+
+            name = names[r]; //Slumpar namn från lista
         }
     }
 }

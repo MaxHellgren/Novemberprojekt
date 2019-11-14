@@ -18,7 +18,7 @@ namespace Novemberprojekt
             Console.Clear();
 
             Console.WriteLine("Welcome to the stands, ladies and gentlemen!");
-            Console.WriteLine("Tonight's fight is between " + f1.name + " and Ali!");
+            Console.WriteLine("Tonight's fight is between " + f1.name + " and " + f2.name + "!");
             Console.ReadKey();
             Console.Clear();
 
@@ -29,7 +29,7 @@ namespace Novemberprojekt
                 i++;
                 Console.WriteLine("Round " + i + "!");
                 Console.WriteLine("");
-                f1.GetHP(); //GetHP attackerar och ändrar ditt hp, dock så slår du dig själv just nu lol
+                f1.GetHP();   //GetHP attackerar och ändrar HP. 
                 f1.IsAlive(); //Måste kolla isalive separat, för annars så tar ali damage när du redan har dött
 
                 if (f1.HP > 1)
