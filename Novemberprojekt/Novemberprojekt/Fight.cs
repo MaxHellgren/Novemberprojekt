@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Novemberprojekt
 {
-    class Fight
+    class Fight //Saker som inte är så intensiv kod, kör saker från Fighter, finns mest för att Main() inte ska ha massa strunt
     {
         Fighter1 f1 = new Fighter1(); //skapar instanser av de olika gubbarna
         Fighter2 f2 = new Fighter2();
@@ -24,15 +24,16 @@ namespace Novemberprojekt
 
 
             int i = 0; //ökar varje runda för att räkna vilken runda fighten är på.
-            while (f1.alive == true && f2.alive == true)
+            while (f1.alive == true && f2.alive == true) //När en fighter dör tar metoden slut, och spelet slutar.
             {
                 i++;
                 Console.WriteLine("Round " + i + "!");
                 Console.WriteLine("");
                 f1.GetHP();   //GetHP attackerar och ändrar HP. 
-                f1.IsAlive(); //Måste kolla isalive separat, för annars så tar ali damage när du redan har dött
+                f1.IsAlive(); //Måste kolla isalive separat, för annars så tar ali damage när du redan har dött. Isåfall kan båda bli knockade samma runda,               
+                              //vilket inte är logiskt i en ritig fight.
 
-                if (f1.HP > 1)
+                if (f1.HP > 1) //Kollar så att f1 inte redan har dött, så båda inte kan dö samma runda
                 {
                     f2.GetHP();
                     f2.IsAlive(); //Skulle annars bara kalla IsAlive efter varje GetHP
@@ -40,7 +41,6 @@ namespace Novemberprojekt
 
                 Console.ReadKey();
                 Console.Clear();
-
             }
         }
     }
